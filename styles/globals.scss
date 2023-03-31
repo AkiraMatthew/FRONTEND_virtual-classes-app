@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main {
+    background-color: #151515;
+    height: 100vh;
+    color: white;
+    p { //some paragraphs margin get buggy because of bootstrap, that's because we need to take the margin out
+        margin: 0;
+    }
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background: #151515;
+}
+::-webkit-scrollbar-thumb{
+    background: #868686;
+    border-radius: 40px;
+}
