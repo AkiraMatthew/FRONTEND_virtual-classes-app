@@ -5,11 +5,17 @@ const HomeNoAuth = () => {
     return (
         <>
             <Head>
-                <title>Home</title>
+                <title>OneBitFlix</title>
+                <link rel="icon" href="/imgs/favicon.svg" type="image/x-icon" />
+                <meta property="og:title" content="OneBitFlix" key="title" />
+                <meta 
+                    name="description"
+                    content="Have access to the best content for your developer journey"
+                />
             </Head>
-            <main>
-
-            </main>
+            <main></main>
         </>
     );
 };
+
+export default HomeNoAuth
