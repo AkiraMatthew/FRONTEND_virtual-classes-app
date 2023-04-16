@@ -13,8 +13,10 @@ const HomeNoAuth = () => {
                 <meta name="description" content="Have access to the best content for your developer journey" />
             </Head>
             <main>
-                <HeaderNoAuth />
-                <PresentationSection />
+                <div className={styles.sectionBackground}>
+                    <HeaderNoAuth />
+                    <PresentationSection />
+                </div>
             </main>
         </>
     );
