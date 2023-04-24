@@ -6,11 +6,12 @@ interface props {
 }
 
 const SlideCard = function ({ course }: props) {
+    console.log(`${process.env.NEXT_PUBLIC_BASEURL}/thumbnails/${course.thumbnailUrl}`)
     return (
         <>
             <div className={styles.slide}>
                 <img
-                    src={`${process.env.NEXT_PUBLIC_BASEURL}/${course.thumbnailUrl}`}
+                    src={`${process.env.NEXT_PUBLIC_BASEURL}/thumbnails/${course.thumbnailUrl}`}
                     alt={course.name}
                     className={styles.slideImg}
                 />
@@ -20,5 +21,6 @@ const SlideCard = function ({ course }: props) {
         </>
     );
 };
+
 
 export default SlideCard;
