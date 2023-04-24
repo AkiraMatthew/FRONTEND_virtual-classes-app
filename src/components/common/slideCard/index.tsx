@@ -6,7 +6,7 @@ interface props {
 }
 
 const SlideCard = function ({ course }: props) {
-    console.log(`${process.env.NEXT_PUBLIC_BASEURL}/thumbnails/${course.thumbnailUrl}`)
+    //console.log(`${process.env.NEXT_PUBLIC_BASEURL}/thumbnails/${course.thumbnailUrl}`)
     return (
         <>
             <div className={styles.slide}>
