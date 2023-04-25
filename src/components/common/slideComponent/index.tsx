@@ -34,8 +34,8 @@ const SlideComponent = function ({ course }: props) {
                         //breakpoints are basically media queries from the Splide
                         breakpoints: {
                             1200: {
-                                perPage: (slideCount >= 2) ? 2 : 1,
-                                width: (slideCount >= 2) ? 600 : 300,
+                                perPage: slideCount >= 2 ? 2 : 1,
+                                width: slideCount >= 2 ? 600 : 300,
                                 arrows: course.length > 2 ? true : false,
                                 drag: course.length > 2 ? true : false,
                             },
