@@ -40,13 +40,13 @@
         text-transform: none;
     }
 }
-.formBtn{
+.formBtn {
     display: block;
     margin: 50px auto 0 auto;
     border-color: $lightRed;
     color: white;
 
-    &:hover{
+    &:hover {
         background-color: transparent;
         color: $lightGray;
         border-color: $darkRed;
@@ -54,21 +54,21 @@
 }
 
 //Media queries
-@media(max-width: 768px){
-    .formTitle{
+@media (max-width: 768px) {
+    .formTitle {
         font-size: 30px;
     }
-    .form{
+    .form {
         width: 95%;
     }
 }
-@media(max-width: 540px){
-    .form{
-        padding: 50px 10px
+@media (max-width: 540px) {
+    .form {
+        padding: 50px 10px;
     }
 }
-@media(max-width: 357px){
-    .formTitle{
+@media (max-width: 357px) {
+    .formTitle {
         font-size: 24px;
         text-align: center;
     }

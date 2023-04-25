@@ -3,8 +3,40 @@ import Head from 'next/head';
 import HeaderGeneric from '@/components/common/headerGeneric';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Footer from '@/components/common/footer';
+import { FormEvent } from 'react'; //it will be used as Type from our event
+import authService from '@/services/authService';
 
 const Register = function () {
+    const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+        const firstName = formData.get('firstName')!.toString();
+        const lastName = formData.get('lastName')!.toString();
+        const phone = formData.get('phone')!.toString();
+        const birth = formData.get('birth')!.toString();
+        const email = formData.get('email')!.toString();
+        const password = formData.get('password')!.toString();
+        const confirmPassword = formData.get('confirmPassword')!.toString();
+        //now we create an object to receive all the constansts we received
+        const params = { firstName, lastName, phone, birth, email, password, confirmPassword };
+
+        if (password != confirmPassword) {
+            alert('The passwords does not match');
+
+            return;
+        }
+
+        //now we're going to receive the data, authenticate and send it to the backend
+        const { data, status } = await authService.register(params);
+
+        if (status === 201) {
+            alert("You're successfull registered");
+        } else {
+            alert(data.message);
+        }
+    };
+
     return (
         <>
             <Head>
@@ -19,7 +51,7 @@ const Register = function () {
                     <p className={styles.formTitle}>
                         <strong>Welcome the platform</strong>
                     </p>
-                    <Form className={styles.form}>
+                    <Form className={styles.form} onSubmit={handleRegister}>
                         <p className="text-center">
                             <strong>Create your account!</strong>
                         </p>
@@ -115,12 +147,12 @@ const Register = function () {
                         </FormGroup>
                         {/* Password Confirm input */}
                         <FormGroup>
-                            <Label for="password" className={styles.label}>
+                            <Label for="confirmPassword" className={styles.label}>
                                 CONFIRM YOUR PASSWORD
                             </Label>
                             <Input
-                                id="password"
-                                name="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
                                 type="password"
                                 placeholder="Confirm your password"
                                 required
