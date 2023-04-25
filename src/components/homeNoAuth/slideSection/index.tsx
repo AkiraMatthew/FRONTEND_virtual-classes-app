@@ -12,7 +12,7 @@ const SlideSection = function ({ newestCourses }: props) {
     return (
         //now we're going to use the react static, since we're building a static page that does not require too much updates
         <>
-            <Container className='d-flex flex-column align-items-center py-5'>
+            <Container className="d-flex flex-column align-items-center py-5">
                 <p className={styles.sectionTitle}>AVAILABLE CLASSES</p>
                 <SlideComponent course={newestCourses} />
                 <Link href="register">

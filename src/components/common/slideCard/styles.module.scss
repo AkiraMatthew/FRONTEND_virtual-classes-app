@@ -13,7 +13,7 @@
 
     &:hover {
         border-color: $lightRed;
-        height: 330px;
+        height: 380px;
     }
 }
 .slideImg {
@@ -29,4 +29,18 @@
     color: #ccc8c8;
     font-size: 14px;
     padding: 8px 16px;
+}
+
+//Media queries
+
+@media (max-width: 1200px) {
+    .slide {
+        margin-right: 14px;
+    }
+}
+@media (max-width: 300px) {
+    .slide {
+        width: 100%;
+        margin-left: 0;
+    }
 }

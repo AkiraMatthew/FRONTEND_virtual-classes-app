@@ -22,5 +22,4 @@ const SlideCard = function ({ course }: props) {
     );
 };
 
-
 export default SlideCard;
