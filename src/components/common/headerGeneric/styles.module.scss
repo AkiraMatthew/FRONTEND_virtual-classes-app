@@ -1,16 +1,15 @@
 @import '../../../../styles/colors.module.scss';
 
-
-.header{
+.header {
     background-color: black;
 }
-.headerContainer{
+.headerContainer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 20px 0px;
 }
-.headerLogo{
+.headerLogo {
     width: 180px;
     cursor: pointer;
 }
@@ -22,13 +21,13 @@
 
 //Media queries
 
-@media(max-width: 576px){
-    .headerContainer{
+@media (max-width: 576px) {
+    .headerContainer {
         padding: 20px 16px;
     }
 }
-@media(max-width: 280px){
-    .headerContainer{
+@media (max-width: 280px) {
+    .headerContainer {
         justify-content: center;
     }
 }
