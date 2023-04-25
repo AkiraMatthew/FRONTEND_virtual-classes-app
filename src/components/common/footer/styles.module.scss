@@ -1,6 +1,6 @@
 @import '../../../../styles/colors.module.scss';
 
-.footer{
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,28 +8,28 @@
     padding: 26px 0px;
     gap: 16px;
 }
-.footerLogo{
+.footerLogo {
     width: 220px;
 }
-.footerLink{
+.footerLink {
     text-decoration: none;
     color: $mediumGray;
     transition: 0.3s;
 
-    &:hover{
+    &:hover {
         color: $lightGray;
     }
 }
 
 //Media queries
 
-@media(max-width: 576px){
-    .footer{
+@media (max-width: 576px) {
+    .footer {
         padding: 26px 16px;
     }
 }
-@media(max-width: 365px){
-    .footer{
+@media (max-width: 365px) {
+    .footer {
         justify-content: center;
     }
 }
