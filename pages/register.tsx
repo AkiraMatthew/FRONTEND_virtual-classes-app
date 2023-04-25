@@ -11,7 +11,7 @@ const Register = function () {
                 <title>OnebitFLix - Register</title>
                 <link rel="icon" href="/imgs/favicon.svg" type="image/x-icon" />
                 {/* This script from jsuites do not accept to be used in any other way, so in this case we need to use as it is and not follow the NextJS documentation */}
-                <script src="https://jsuites.net/v4/jsuites.js"></script> 
+                <script src="https://jsuites.net/v4/jsuites.js"></script>
             </Head>
             <main className={styles.main}>
                 <HeaderGeneric logoUrl="/" btnUrl="/login" btnContent="Log in" />
@@ -84,8 +84,8 @@ const Register = function () {
                         </FormGroup>
                         {/* Birthday input */}
                         <FormGroup>
-                            <Label for="bith" className={styles.label}>
-                                E-MAIL
+                            <Label for="birth" className={styles.label}>
+                                BIRTHDAY
                             </Label>
                             <Input
                                 id="birth"
@@ -129,9 +129,12 @@ const Register = function () {
                                 className={styles.input}
                             />
                         </FormGroup>
+                        <Button type="submit" outline className={styles.formBtn}>
+                            SUBMIT
+                        </Button>
                     </Form>
                 </Container>
-                <Footer/>
+                <Footer />
             </main>
         </>
     );
