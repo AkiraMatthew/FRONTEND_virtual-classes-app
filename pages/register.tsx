@@ -3,10 +3,18 @@ import Head from 'next/head';
 import HeaderGeneric from '@/components/common/headerGeneric';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Footer from '@/components/common/footer';
-import { FormEvent } from 'react'; //it will be used as Type from our event
+import { FormEvent, useState } from 'react'; //it will be used as Type from our event
 import authService from '@/services/authService';
+import { useRouter } from 'next/router';
+import ToastComponent from '@/components/common/toast';
 
 const Register = function () {
+    const router = useRouter(); //that makes possible to us to navigate throgth folders by using the routes
+
+    //Adding the states for ToastIsOpen and ToastMessage
+    const [toastIsOpen, setToastIsOpen] = useState(false);
+    const [ToastMessage, setToastMessage] = useState('');
+
     const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -19,10 +27,22 @@ const Register = function () {
         const password = formData.get('password')!.toString();
         const confirmPassword = formData.get('confirmPassword')!.toString();
         //now we create an object to receive all the constansts we received
-        const params = { firstName, lastName, phone, birth, email, password, confirmPassword };
+        const params = {
+            firstName,
+            lastName,
+            phone,
+            birth,
+            email,
+            password,
+            confirmPassword,
+        };
 
         if (password != confirmPassword) {
-            alert('The passwords does not match');
+            setToastIsOpen(true);
+            setTimeout(() => {
+                setToastIsOpen(false);
+            }, 1000 * 3);
+            setToastMessage('The passwords do not match');
 
             return;
         }
@@ -31,9 +51,13 @@ const Register = function () {
         const { data, status } = await authService.register(params);
 
         if (status === 201) {
-            alert("You're successfull registered");
+            router.push('/login?registered=true');
         } else {
-            alert(data.message);
+            setToastIsOpen(true);
+            setTimeout(() => {
+                setToastIsOpen(false);
+            }, 1000 * 3);
+            setToastMessage(data.message);
         }
     };
 
@@ -167,6 +191,11 @@ const Register = function () {
                     </Form>
                 </Container>
                 <Footer />
+                <ToastComponent
+                    color="bg-danger"
+                    isOpen={toastIsOpen}
+                    message={ToastMessage}
+                />
             </main>
         </>
     );

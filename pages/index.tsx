@@ -27,10 +27,17 @@ const HomeNoAuth = ({ course }: IndexPageProps) => {
                 <title>OneBitFlix</title>
                 <link rel="icon" href="/imgs/favicon.svg" type="image/x-icon" />
                 <meta property="og:title" content="OneBitFlix" key="title" />
-                <meta name="description" content="Have access to the best content for your developer journey" />
+                <meta
+                    name="description"
+                    content="Have access to the best content for your developer journey"
+                />
             </Head>
             <main>
-                <div className={styles.sectionBackground} data-aos="fade-zoom-in" data-aos-duration="1600">
+                <div
+                    className={styles.sectionBackground}
+                    data-aos="fade-zoom-in"
+                    data-aos-duration="1600"
+                >
                     <HeaderNoAuth />
                     <PresentationSection />
                 </div>

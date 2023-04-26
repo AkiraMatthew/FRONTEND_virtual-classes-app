@@ -18,17 +18,30 @@ const PresentationSection = function () {
                         </p>
                         <Link href="/register">
                             <Button outline className={styles.btnCta}>
-                                ACCESS NOW <img src="/imgs/buttonPlay.svg" alt="button_img" className={styles.btnImg} />
+                                ACCESS NOW{' '}
+                                <img
+                                    src="/imgs/buttonPlay.svg"
+                                    alt="button_img"
+                                    className={styles.btnImg}
+                                />
                             </Button>
                         </Link>
                     </Col>
                     <Col md>
-                        <img src="/imgs/homeNoAuth/imgPresentation.png" alt="imgIndex" className={styles.imgPresentation} />
+                        <img
+                            src="/imgs/homeNoAuth/imgPresentation.png"
+                            alt="imgIndex"
+                            className={styles.imgPresentation}
+                        />
                     </Col>
                 </Row>
                 <Row>
                     <Col className="d-flex justify-content-center pt-5">
-                        <img src="/imgs/homeNoAuth/iconArrowDown.svg" alt="arrowDown" className={styles.arrowDown} />
+                        <img
+                            src="/imgs/homeNoAuth/iconArrowDown.svg"
+                            alt="arrowDown"
+                            className={styles.arrowDown}
+                        />
                     </Col>
                 </Row>
             </Container>

@@ -1,6 +1,6 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "prettier.configPath": "\\\\wsl.localhost\\Ubuntu-20.04\\home\\home\\Projects\\virtual-classes-app\\frontend_virtual-classes-app\\",
+    "prettier.configPath": "\\\\wsl.localhost\\Ubuntu-20.04\\home\\home\\Projects\\",
     "editor.formatOnSave": true
 }
