@@ -5,7 +5,7 @@
 }
 main {
     background-color: #151515;
-    height: auto;
+    min-height: 100vh;
     color: white;
     p {
         //some paragraphs margin get buggy because of bootstrap, that's because we need to take the margin out
