@@ -14,6 +14,13 @@ const Login = function () {
     const [toastIsOpen, setToastIsOpen] = useState(false);
     const [ToastMessage, setToastMessage] = useState('');
 
+    //Verification of the user token for the platform log in
+    useEffect(() => {
+        if(sessionStorage.getItem('platform-token')){
+            router.push('/home')
+        }
+    }, [])
+
     useEffect(() => {
         const registerSuccess = router.query.registered;
 

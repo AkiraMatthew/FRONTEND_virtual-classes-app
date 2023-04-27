@@ -3,7 +3,7 @@ import Head from 'next/head';
 import HeaderGeneric from '@/components/common/headerGeneric';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Footer from '@/components/common/footer';
-import { FormEvent, useState } from 'react'; //it will be used as Type from our event
+import { FormEvent, useEffect, useState } from 'react'; //it will be used as Type from our event
 import authService from '@/services/authService';
 import { useRouter } from 'next/router';
 import ToastComponent from '@/components/common/toast';
@@ -14,6 +14,13 @@ const Register = function () {
     //Adding the states for ToastIsOpen and ToastMessage
     const [toastIsOpen, setToastIsOpen] = useState(false);
     const [ToastMessage, setToastMessage] = useState('');
+
+    //If the user want to register, he can't be logged in, so if he try to go to register page while he is logged in, he will be redirected to the authenticated home page
+    useEffect(() => {
+        if(sessionStorage.getItem('platform-token')){
+            router.push('/home')
+        }
+    }, [])
 
     const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
