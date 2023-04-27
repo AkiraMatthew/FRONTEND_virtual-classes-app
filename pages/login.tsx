@@ -16,10 +16,10 @@ const Login = function () {
 
     //Verification of the user token for the platform log in
     useEffect(() => {
-        if(sessionStorage.getItem('platform-token')){
-            router.push('/home')
+        if (sessionStorage.getItem('platform-token')) {
+            router.push('/home');
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
         const registerSuccess = router.query.registered;

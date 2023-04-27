@@ -1,3 +1,4 @@
+import HeaderAuth from '@/components/common/headerAuth';
 import Head from 'next/head';
 
 const HomeAuth = function () {
@@ -8,7 +9,7 @@ const HomeAuth = function () {
                 <link rel="icon" href="/imgs/favicon.svg" type="image/x-icon" />
             </Head>
             <main>
-                <p>You&#39;re logged in</p>
+                <HeaderAuth/>
             </main>
         </>
     );

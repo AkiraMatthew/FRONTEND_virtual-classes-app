@@ -17,10 +17,10 @@ const Register = function () {
 
     //If the user want to register, he can't be logged in, so if he try to go to register page while he is logged in, he will be redirected to the authenticated home page
     useEffect(() => {
-        if(sessionStorage.getItem('platform-token')){
-            router.push('/home')
+        if (sessionStorage.getItem('platform-token')) {
+            router.push('/home');
         }
-    }, [])
+    }, []);
 
     const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
