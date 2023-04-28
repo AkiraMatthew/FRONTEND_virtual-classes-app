@@ -9,7 +9,7 @@ const HomeAuth = function () {
                 <link rel="icon" href="/imgs/favicon.svg" type="image/x-icon" />
             </Head>
             <main>
-                <HeaderAuth/>
+                <HeaderAuth />
             </main>
         </>
     );

@@ -1,22 +1,22 @@
 @import '../../../../styles/colors.module.scss';
 
-.imgLogoNav{
+.imgLogoNav {
     width: 160px;
     cursor: pointer;
 }
-.nav{
+.nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 24px 14px;
 }
-.searchImg{
+.searchImg {
     width: 18px;
     margin: 0px 10px;
     cursor: pointer;
 }
-.userProfile{
+.userProfile {
     font-weight: bold;
     font-size: 24px;
     background-color: white;
@@ -31,17 +31,36 @@
     cursor: pointer;
     margin: 0px 14px;
 }
-.input{
+.input {
     background-color: transparent;
     color: white;
     border-color: $lightGray;
-    &:focus{
+    &:focus {
         background-color: transparent;
         color: white;
         border-color: $mediumGray;
         box-shadow: none;
     }
-    &::placeholder{
+    &::placeholder {
         color: white;
     }
+}
+.modal{
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    top: 85px;
+    right: 10%;
+    background-color: #303030;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 8px 6px 4px rgba(0, 0, 0, 0.486)
+}
+.overlayModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
 }
