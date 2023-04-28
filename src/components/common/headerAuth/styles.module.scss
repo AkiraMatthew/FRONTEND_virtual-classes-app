@@ -6,7 +6,6 @@
 }
 .nav {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 24px 14px;
@@ -75,4 +74,25 @@
     margin: 5px 0px;
     font-weight: bold;
     cursor: pointer;
+
+    transition: 0.4s;
+    &:hover{
+        color: $lightRed;
+    }
+}
+
+//Media queries
+@media(max-width: 576px){
+    .nav{
+        flex-wrap: wrap;
+    }
+}
+@media(max-width: 526px){
+    .nav{
+        justify-content: center;
+        gap: 20px;
+    }
+    .modal{
+        top: 135px;
+    }
 }
