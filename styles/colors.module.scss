@@ -3,3 +3,8 @@ $darkRed: #b30d39;
 $lightGray: #ccc8c9;
 $mediumGray: #9e9a9a;
 $darkGray: #4e4e4e;
+
+//Taking out the underline from the links
+.linkUnderline{
+    text-decoration: none;
+}

@@ -16,7 +16,7 @@ const PresentationSection = function () {
                             Study anywhere and anytime, and keep <br />
                             evolving as developer.
                         </p>
-                        <Link href="/register">
+                        <Link href="/register" className={styles.linkUnderline}>
                             <Button outline className={styles.btnCta}>
                                 ACCESS NOW{' '}
                                 <img

@@ -5,8 +5,12 @@ import { Container, Form, Input } from 'reactstrap';
 import Link from 'next/link';
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+
+Modal.setAppElement('#__next');
 
 const HeaderAuth = function () {
+    const router = useRouter();
     const [modalOpen, setModalOpen] = useState(false);
 
     const handeOpenModal = () => {
@@ -15,6 +19,13 @@ const HeaderAuth = function () {
     const handeCloseModal = () => {
         setModalOpen(false);
     };
+    const handleLogout = () => {
+        //this will clear the session token and logout the user
+        sessionStorage.clear();
+
+        //this will redirect the user to HomeNoAuth
+        router.push('/')
+    }
 
     return (
         <>
@@ -53,7 +64,12 @@ const HeaderAuth = function () {
                     shouldCloseOnEsc={true}
                     className={styles.modal}
                     overlayClassName={styles.overlayModal}
-                ></Modal>
+                >
+                    <Link href='/profile' className={styles.linkUnderline}>
+                        <p className={styles.modalLink}>My Data</p>
+                    </Link>
+                    <p className={styles.modalLink} onClick={handleLogout}>Log out</p>
+                </Modal>
             </Container>
         </>
     );
