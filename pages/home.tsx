@@ -11,7 +11,7 @@ const HomeAuth = function () {
             </Head>
             <main>
                 {/* <HeaderAuth /> */}
-                <FeaturedSection/>
+                <FeaturedSection />
             </main>
         </>
     );

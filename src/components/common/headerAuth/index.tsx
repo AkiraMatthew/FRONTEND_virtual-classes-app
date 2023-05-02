@@ -24,8 +24,8 @@ const HeaderAuth = function () {
         sessionStorage.clear();
 
         //this will redirect the user to HomeNoAuth
-        router.push('/')
-    }
+        router.push('/');
+    };
 
     return (
         <>
@@ -65,10 +65,12 @@ const HeaderAuth = function () {
                     className={styles.modal}
                     overlayClassName={styles.overlayModal}
                 >
-                    <Link href='/profile' className={styles.linkUnderline}>
+                    <Link href="/profile" className={styles.linkUnderline}>
                         <p className={styles.modalLink}>My Data</p>
                     </Link>
-                    <p className={styles.modalLink} onClick={handleLogout}>Log out</p>
+                    <p className={styles.modalLink} onClick={handleLogout}>
+                        Log out
+                    </p>
                 </Modal>
             </Container>
         </>

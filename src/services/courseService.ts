@@ -28,19 +28,21 @@ const courseService = {
 
         return res;
     },
-    getFeaturedCourses:async () => {
+    getFeaturedCourses: async () => {
         //The backend route is protected from now on, so we always will need the session token
         const token = sessionStorage.getItem('platform-token');
 
-        const res = await api.get('/courses/featured', {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            }
-        }).catch((error) => {
-            console.log(error.response.data.message);
+        const res = await api
+            .get('/courses/featured', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .catch((error) => {
+                console.log(error.response.data.message);
 
-            return error.response;
-        });
+                return error.response;
+            });
 
         return res;
     },
