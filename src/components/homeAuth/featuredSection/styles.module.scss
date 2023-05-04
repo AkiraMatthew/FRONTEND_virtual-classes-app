@@ -36,34 +36,34 @@
 }
 
 //Media queries
-@media(max-width: 768px){
-    .title{
+@media (max-width: 768px) {
+    .title {
         width: 95%;
         font-size: 30px;
         line-height: 40px;
     }
-    .description{
+    .description {
         width: 95%;
         font-size: 18px;
         margin-top: 25px;
         height: 110px;
     }
 }
-@media(max-width: 410px){
-    .title{
+@media (max-width: 410px) {
+    .title {
         font-size: 18px;
         line-height: 25px;
     }
-    .description{
+    .description {
         font-size: 14px;
         margin-top: 25px;
         height: 110px;
     }
-    .button{
+    .button {
         font-size: 12px;
         padding: 10px 20px;
     }
-    .buttonImg{
+    .buttonImg {
         width: 8px;
     }
 }

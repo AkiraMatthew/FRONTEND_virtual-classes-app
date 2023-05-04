@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+import courseService, { CourseType } from '@/services/courseService';
 import styles from './styles.module.scss';
 import useSWR from 'swr'; // the SWR is a facilitator to fetch the backend
-import courseService, { CourseType } from '@/services/courseService';
 import HeaderAuth from '@/components/common/headerAuth';
 import { Button, Container } from 'reactstrap';
 import Link from 'next/link';
@@ -29,7 +30,7 @@ const FeaturedSection = function () {
                             url(${process.env.NEXT_PUBLIC_BASEURL}/thumbnails/${course.thumbnailUrl})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            height: '480px'
+                            height: '480px',
                         }}
                         key={course.id}
                     >
