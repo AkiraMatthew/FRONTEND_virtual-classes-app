@@ -13,7 +13,9 @@ const UserInfo = function () {
                 <link rel="icon" href="/imgs/favicon.svg" type="image/x-icon" />
             </Head>
             <main>
-                <HeaderAuth />
+                <div className={styles.header}>
+                    <HeaderAuth />
+                </div>
                 <Container className="py-5">
                     <p className={styles.title}>My account</p>
                     <Row className='pt-3 pb-5'>
@@ -25,7 +27,9 @@ const UserInfo = function () {
                         <Col md><UserForm /></Col>
                     </Row>
                 </Container>
-                <Footer />
+                <div className={styles.footer}>
+                    <Footer />
+                </div>
             </main>
         </>
     );

@@ -25,7 +25,7 @@ const UserForm = function () {
 
                 <hr />
 
-                <div>
+                <div className={styles.inputFlexDiv}>
                     <FormGroup>
                         <Label for="firstName" className={styles.label}>NAME</Label>
                         <Input
@@ -53,7 +53,7 @@ const UserForm = function () {
                         />
                     </FormGroup>
                 </div>
-                <div>
+                <div className={styles.inputNormalDiv}>
                     <FormGroup>
                         <Label for="number" className={styles.label}>PHONE NUMBER</Label>
                         <Input
@@ -79,7 +79,7 @@ const UserForm = function () {
                         />
                     </FormGroup>
 
-                    <Button className={styles.formBtn} outline type='submit'></Button>
+                    <Button className={styles.formBtn} outline type='submit'>Save Changes</Button>
                 </div>
             </Form>
         </>
