@@ -17,7 +17,7 @@ const FavoriteCategory = function () {
 
     return (
         <>
-            <p className={styles.titleCategory}>My List</p>
+            <p className={styles.titleCategory}>MY LIST</p>
             {/* there is 2 states on the course favorites, if a favorite exists or if it does not exist */}
             {data.data.courses.length >= 1 ? (
                 <SlideComponent course={data.data.courses} />
