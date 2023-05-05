@@ -1,10 +1,10 @@
-import styles from '../../../../styles/slideCategory.module.scss'
-import categoriesService, { CategoryType } from "@/services/categoriesService";
-import useSWR from "swr";
+import categoriesService, { CategoryType } from '@/services/categoriesService';
+import useSWR from 'swr';
+import ListCategoriesSlide from '../listCategoriesSlide';
 
 const ListCategories = function () {
     //creating the SWR use
-    const { data, error } = useSWR('/listCategories', categoriesService.getCategories);
+    const { data, error } = useSWR('/categoriesList', categoriesService.getCategories);
 
     if (error) return error;
     if (!data)
@@ -16,11 +16,13 @@ const ListCategories = function () {
 
     return (
         <>
-            { data.data.categories?.map((category: CategoryType) => (
-                <div key={category.id}>
-                    <p className={styles.titleCategory}>{category.name}</p>
-                </div>
-            )) }
+            {data.data.categories?.map((category: CategoryType) => (
+                <ListCategoriesSlide
+                    key={category.id}
+                    categoryId={category.id}
+                    categoryName={category.name}
+                />
+            ))}
         </>
     );
 };
