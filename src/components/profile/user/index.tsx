@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */ // Disable specific eslint rule for this file
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'; // Importing necessary components from reactstrap library
 import styles from '../../../../styles/profile.module.scss'; // Importing module styles
-import { FormEvent, useEffect, useState } from 'react'; // Importing necessary hooks from React
+import { FormEvent, use, useEffect, useState } from 'react'; // Importing necessary hooks from React
 import profileService from '@/services/profileService'; // Importing profile service
 import ToastComponent from '@/components/common/toast'; // Importing toast component
+import { useRouter } from 'next/router';
 
 const UserForm = function () {
+    //we add the router to log out the user after updating the email
+    const router = useRouter();
     // Declaring state variables using useState hook
     const [color, setColor] = useState('');
     const [toastIsOpen, setToastIsOpen] = useState(false);
@@ -14,6 +17,8 @@ const UserForm = function () {
     const [lastName, setLastName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    //After updating the email on the user data menu, we need to log out the user from its account in order to make the change successful
+    const [initialEmail, setInitialEmail] = useState('')
     const [created_at, setCreated_at] = useState('');
     const date = new Date(created_at); //formating to bring the date in the usual date format, but here the month still  comming as number
     const month = date.toLocaleDateString('default', { month: 'long' });
@@ -25,6 +30,7 @@ const UserForm = function () {
             setLastName(user.lastName);
             setPhone(user.phone);
             setEmail(user.email);
+            setInitialEmail(user.email);
             setCreated_at(user.createdAt);
         });
     }, []);
@@ -48,6 +54,12 @@ const UserForm = function () {
             setErrorMessage('Data successful updated!');
             setColor('bg-success');
             setTimeout(() => setToastIsOpen(false), 1000 * 3);
+
+            //this if is used to log out the user after updating the email
+            if(email != initialEmail){
+                sessionStorage.clear();
+                router.push('/');
+            }
         } else {
             // If update fails, show error message and update state variables
             setToastIsOpen(true);
