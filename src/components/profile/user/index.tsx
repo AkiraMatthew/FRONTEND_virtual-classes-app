@@ -90,7 +90,7 @@ const UserForm = function () {
                         className={styles.memberTimeImg}
                     />
                     <p className={styles.memberTimeText}>
-                        Member since <br /> {`${date.getDate()}st ${month} of ${date.getFullYear()}`}
+                        Member since <br /> {`${date.getDate()}st ${date.getUTCMonth()} of ${date.getFullYear()}`}
                     </p>
                 </div>
 
