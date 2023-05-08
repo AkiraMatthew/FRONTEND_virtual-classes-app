@@ -24,7 +24,9 @@ const UserInfo = function () {
                             <Button className={styles.renderForm}>Personal Data</Button>
                             <Button className={styles.renderForm}>Password</Button>
                         </Col>
-                        <Col md><UserForm /></Col>
+                        <Col md>
+                            <UserForm />
+                        </Col>
                     </Row>
                 </Container>
                 <div className={styles.footer}>
