@@ -1,14 +1,14 @@
 @import './colors.module.scss';
 
-.header{
+.header {
     background-color: black;
 }
-.form{
+.form {
     border: 1px solid $darkGray;
     padding: 20px 0px;
     max-width: 100%;
 }
-.formName{
+.formName {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +17,7 @@
     margin: 20px auto;
     text-transform: uppercase;
 }
-.nameAbbreviation{
+.nameAbbreviation {
     font-size: 40px;
     font-weight: bold;
     min-height: 70px;
@@ -29,63 +29,63 @@
     justify-content: center;
     align-items: center;
 }
-.userName{
+.userName {
     font-size: 25px;
     font-weight: bold;
 }
-.memberTime{
+.memberTime {
     display: flex;
     justify-content: end;
     padding-right: 10px;
     gap: 10px;
 }
-.memberTimeImg{
+.memberTimeImg {
     width: 20px;
 }
-.memberTimeText{
+.memberTimeText {
     font-size: 14px;
     color: $lightGray;
 }
-.label{
+.label {
     font-size: 14px;
     font-weight: bold;
 }
-.inputFlexDiv{
+.inputFlexDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
 }
-.inputFlex{
+.inputFlex {
     width: 250px;
     text-transform: uppercase;
     background-color: transparent;
     border: 1px solid $darkGray;
     color: white;
-    
-    &::placeholder{
+
+    &::placeholder {
         color: $lightGray;
     }
-    &:focus{
+    &:focus {
         box-shadow: none;
         border-color: $lightRed;
         color: white;
         background-color: transparent;
     }
 }
-.inputNormalDiv{
+.inputNormalDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
     gap: 20px;
 }
-.input{
+.input {
     @extend .inputFlex;
     text-transform: lowercase;
     width: 550px;
 }
-.formBtn{
+.formBtn {
     border-color: $lightRed;
     text-align: center;
     color: $lightGray;
@@ -93,18 +93,18 @@
     font-size: 15px;
     padding: 6px 20px;
 
-    &:hover{
+    &:hover {
         border-color: $darkRed;
         background-color: transparent;
         color: white;
     }
 }
-.title{
+.title {
     font-size: 45px;
     font-weight: bold;
     padding-bottom: 50px;
 }
-.renderForm{
+.renderForm {
     display: block;
     width: 200px;
     border: 1px solid $darkGray;
@@ -112,49 +112,49 @@
     font-weight: bold;
     margin: 0 auto;
     padding: 14px 0;
-    
-    &:hover{
+
+    &:hover {
         border-color: $darkRed;
         background-color: transparent;
         color: white;
     }
 }
-.footer{
+.footer {
     background-color: black;
 }
 
 //Media queries
-@media(max-width: 992px){
-    .title{
+@media (max-width: 992px) {
+    .title {
         text-align: center;
     }
-    .btnColumn{
+    .btnColumn {
         width: 100%;
         margin-bottom: 40px;
     }
 }
-@media(max-width: 768px){
-    .inputFlexDiv{
+@media (max-width: 768px) {
+    .inputFlexDiv {
         gap: 80%;
     }
-    .inputFlex{
+    .inputFlex {
         width: 350px;
     }
 }
-@media(max-width: 461px){
-    .title{
+@media (max-width: 461px) {
+    .title {
         font-size: 30px;
         margin-bottom: 10px;
     }
-    .nameAbbreviation{
+    .nameAbbreviation {
         font-size: 30px;
         min-height: 60px;
         min-width: 60px;
     }
-    .userName{
+    .userName {
         font-size: 22px;
     }
-    .inputFlex{
+    .inputFlex {
         width: 100%;
     }
 }

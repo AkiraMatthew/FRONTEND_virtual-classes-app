@@ -18,7 +18,7 @@ const UserInfo = function () {
                 </div>
                 <Container className="py-5">
                     <p className={styles.title}>My account</p>
-                    <Row className='pt-3 pb-5'>
+                    <Row className="pt-3 pb-5">
                         {/* The bootstrap grid is divided in 12, in the following md col size, it will have the 4 size */}
                         <Col md={4} className={styles.btnColumn}>
                             <Button className={styles.renderForm}>Personal Data</Button>
