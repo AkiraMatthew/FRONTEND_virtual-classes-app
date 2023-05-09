@@ -28,7 +28,9 @@ const UserInfo = function () {
                         <Col md={4} className={styles.btnColumn}>
                             <Button
                                 className={styles.renderForm}
-                                style={{color: form === 'userForm' ? '#FF0044' : 'white'}}
+                                style={{
+                                    color: form === 'userForm' ? '#FF0044' : 'white',
+                                }}
                                 onClick={() => {
                                     setForm('userForm');
                                 }}
@@ -37,7 +39,9 @@ const UserInfo = function () {
                             </Button>
                             <Button
                                 className={styles.renderForm}
-                                style={{color: form === 'passwordForm' ? '#FF0044' : 'white'}}
+                                style={{
+                                    color: form === 'passwordForm' ? '#FF0044' : 'white',
+                                }}
                                 onClick={() => {
                                     setForm('passwordForm');
                                 }}
@@ -47,7 +51,7 @@ const UserInfo = function () {
                         </Col>
                         <Col md>
                             {/* making the conditional renderization by using the useState */}
-                            {form === 'userForm' ? <UserForm/> : <PasswordForm/>}
+                            {form === 'userForm' ? <UserForm /> : <PasswordForm />}
                         </Col>
                     </Row>
                 </Container>

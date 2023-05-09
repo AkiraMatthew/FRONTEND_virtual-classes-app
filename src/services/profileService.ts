@@ -9,7 +9,7 @@ interface UserParams {
     created_at: string;
 }
 
-interface PasswordParams{
+interface PasswordParams {
     currentPassword: string;
     newPassword: string;
 }
@@ -50,7 +50,7 @@ const profileService = {
 
         return res.status;
     },
-    passwordUpdate:async (params: PasswordParams) => {
+    passwordUpdate: async (params: PasswordParams) => {
         const token = sessionStorage.getItem('platform-token');
 
         const res = await api
@@ -68,7 +68,7 @@ const profileService = {
             });
 
         return res.status;
-    }
+    },
 };
 
 export default profileService;

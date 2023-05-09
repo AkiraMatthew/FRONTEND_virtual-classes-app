@@ -1,6 +1,6 @@
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import styles from '../../../../styles/profile.module.scss';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import profileService from '@/services/profileService';
 import ToastComponent from '@/components/common/toast';
 
@@ -17,9 +17,65 @@ const PasswordForm = function () {
         profileService.fetchCurrent().then((password) => {
             setCurrentPassword(password.currentPassword);
             setNewPassword(password.newPassword);
-        })
-    }, [])
-    
+        });
+    }, []);
+
+    const handlePasswordUpdate = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        if (newPassword != confirmNewPassword) {
+            setToastIsOpen(true);
+            setErrorMessage('Password and password confirmation are different');
+            setColor('bg-danger');
+            setTimeout(() => {
+                setToastIsOpen(false);
+            }, 1000 * 3);
+
+            return;
+        }
+
+        if (currentPassword === newPassword) {
+            setToastIsOpen(true);
+            setErrorMessage("The new password can't be the same as the old one");
+            setColor('bg-danger');
+            setTimeout(() => {
+                setToastIsOpen(false);
+            }, 1000 * 3);
+
+            return;
+        }
+
+        const res = await profileService.passwordUpdate({
+            currentPassword,
+            newPassword,
+        });
+
+        //making the status verification to an success case
+        if (res === 204) {
+            setToastIsOpen(true);
+            setErrorMessage('Password modification successful');
+            setColor('bg-success');
+            setTimeout(() => {
+                setToastIsOpen(false);
+            }, 1000 * 3);
+
+            //after the confirmation, we reset the inputs and give
+            setCurrentPassword('');
+            setNewPassword('');
+            setConfirmNewPassword('');
+        }
+
+        //making the status verification to an error case
+        if (res === 400) {
+            setToastIsOpen(true);
+            setErrorMessage('The current password is incorrect');
+            setColor('bg-danger');
+            setTimeout(() => {
+                setToastIsOpen(false);
+            }, 1000 * 3);
+        }
+    };
+
     return (
         <>
             <Form className={styles.form}>
@@ -36,6 +92,10 @@ const PasswordForm = function () {
                             required
                             minLength={6}
                             maxLength={20}
+                            value={currentPassword}
+                            onChange={(event) => {
+                                setCurrentPassword(event.currentTarget.value);
+                            }}
                             className={styles.input}
                         />
                     </FormGroup>
@@ -51,7 +111,11 @@ const PasswordForm = function () {
                             id="password"
                             placeholder="******"
                             minLength={6}
-                            maxLength={12}
+                            maxLength={20}
+                            value={newPassword}
+                            onChange={(event) => {
+                                setNewPassword(event.currentTarget.value);
+                            }}
                             className={styles.inputFlex}
                         />
                     </FormGroup>
@@ -65,13 +129,18 @@ const PasswordForm = function () {
                             id="password"
                             placeholder="******"
                             minLength={6}
-                            maxLength={12}
+                            maxLength={20}
+                            value={confirmNewPassword}
+                            onChange={(event) => {
+                                setConfirmNewPassword(event.currentTarget.value);
+                            }}
                             className={styles.inputFlex}
                         />
                     </FormGroup>
-
                 </div>
-                    <Button className={`${styles.formBtn}`} outline>Save Changes</Button>
+                <Button className={`${styles.formBtn}`} outline>
+                    Save Changes
+                </Button>
             </Form>
 
             {/* We use the toast to display the alert of the success or failure of the operation */}
