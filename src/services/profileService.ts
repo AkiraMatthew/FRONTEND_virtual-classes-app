@@ -54,7 +54,7 @@ const profileService = {
         const token = sessionStorage.getItem('platform-token');
 
         const res = await api
-            .put('/users/current/password', params, {
+            .put('/users/current/accountPassword', params, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
