@@ -1,7 +1,25 @@
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import styles from '../../../../styles/profile.module.scss';
+import { useEffect, useState } from 'react';
+import profileService from '@/services/profileService';
+import ToastComponent from '@/components/common/toast';
 
 const PasswordForm = function () {
+    const [currentPassword, setCurrentPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    //the password confirmation is made by the frontend, the backend does not verify the password
+    const [confirmNewPassword, setConfirmNewPassword] = useState('');
+    const [color, setColor] = useState('');
+    const [toastIsOpen, setToastIsOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        profileService.fetchCurrent().then((password) => {
+            setCurrentPassword(password.currentPassword);
+            setNewPassword(password.newPassword);
+        })
+    }, [])
+    
     return (
         <>
             <Form className={styles.form}>
@@ -55,6 +73,9 @@ const PasswordForm = function () {
                 </div>
                     <Button className={`${styles.formBtn}`} outline>Save Changes</Button>
             </Form>
+
+            {/* We use the toast to display the alert of the success or failure of the operation */}
+            <ToastComponent color={color} isOpen={toastIsOpen} message={errorMessage} />
         </>
     );
 };
