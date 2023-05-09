@@ -116,7 +116,8 @@
     &:hover {
         border-color: $darkRed;
         background-color: transparent;
-        color: white;
+        color: $lightRed;
+        border-color: $lightGray;
     }
 }
 .footer {
