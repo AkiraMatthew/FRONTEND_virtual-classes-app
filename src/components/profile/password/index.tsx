@@ -7,7 +7,7 @@ const PasswordForm = function () {
             <Form className={styles.form}>
                 <div className={styles.inputNormalDiv}>
                     <FormGroup>
-                        <Label className={styles.input} for="currentPassword">
+                        <Label className={styles.label} for="currentPassword">
                             CURRENT PASSWORD
                         </Label>
                         <Input
@@ -39,7 +39,7 @@ const PasswordForm = function () {
                     </FormGroup>
                     <FormGroup>
                         <Label className={styles.label} for="confirmNewPassword">
-                            NEW PASSWORD
+                            CONFIRM NEW PASSWORD
                         </Label>
                         <Input
                             name="confirmNewPassword"
@@ -52,8 +52,8 @@ const PasswordForm = function () {
                         />
                     </FormGroup>
 
-                    <Button className={styles.formBtn}>Save Changes</Button>
                 </div>
+                    <Button className={`${styles.formBtn}`} outline>Save Changes</Button>
             </Form>
         </>
     );

@@ -86,6 +86,8 @@
     width: 550px;
 }
 .formBtn {
+    display: block;
+    margin: 10px auto;
     border-color: $lightRed;
     text-align: center;
     color: $lightGray;
