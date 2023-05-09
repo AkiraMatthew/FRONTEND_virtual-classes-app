@@ -119,6 +119,14 @@
         color: $lightRed;
         border-color: $lightGray;
     }
+    &:active{
+        background-color: transparent;
+        box-shadow: none;
+    }
+    &:focus{
+        background-color: transparent;
+        box-shadow: none;
+    }
 }
 .footer {
     background-color: black;
