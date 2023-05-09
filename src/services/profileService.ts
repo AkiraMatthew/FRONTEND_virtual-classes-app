@@ -9,6 +9,11 @@ interface UserParams {
     created_at: string;
 }
 
+interface PasswordParams{
+    currentPassword: string;
+    newPassword: string;
+}
+
 const profileService = {
     //This method will be used to catch the current user informations by fetching the backend
     fetchCurrent: async () => {
@@ -45,6 +50,25 @@ const profileService = {
 
         return res.status;
     },
+    passwordUpdate:async (params: PasswordParams) => {
+        const token = sessionStorage.getItem('platform-token');
+
+        const res = await api
+            .put('/users/current/password', params, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .catch((error) => {
+                if (error.response.status === 400 || error.response.status === 401) {
+                    return error.response;
+                }
+
+                return error;
+            });
+
+        return res.status;
+    }
 };
 
 export default profileService;
