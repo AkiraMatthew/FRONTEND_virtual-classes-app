@@ -18,7 +18,7 @@ const UserForm = function () {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     //After updating the email on the user data menu, we need to log out the user from its account in order to make the change successful
-    const [initialEmail, setInitialEmail] = useState('')
+    const [initialEmail, setInitialEmail] = useState('');
     const [created_at, setCreated_at] = useState('');
     const date = new Date(created_at); //formating to bring the date in the usual date format, but here the month still  comming as number
     const month = date.toLocaleDateString('default', { month: 'long' });
@@ -56,7 +56,7 @@ const UserForm = function () {
             setTimeout(() => setToastIsOpen(false), 1000 * 3);
 
             //this if is used to log out the user after updating the email
-            if(email != initialEmail){
+            if (email != initialEmail) {
                 sessionStorage.clear();
                 router.push('/');
             }
@@ -90,7 +90,8 @@ const UserForm = function () {
                         className={styles.memberTimeImg}
                     />
                     <p className={styles.memberTimeText}>
-                        Member since <br /> {`${date.getDate()}st ${date.getUTCMonth()} of ${date.getFullYear()}`}
+                        Member since <br />{' '}
+                        {`${date.getDate()}st ${date.getUTCMonth()} of ${date.getFullYear()}`}
                     </p>
                 </div>
 

@@ -19,9 +19,9 @@ const HeaderAuth = function () {
         profileService.fetchCurrent().then((user) => {
             const firstNameInitial = user.firstName.slice(0, 1);
             const lastNameInitial = user.lastName.slice(0, 1);
-            setInitials(firstNameInitial + lastNameInitial)
-        })
-    }, [])
+            setInitials(firstNameInitial + lastNameInitial);
+        });
+    }, []);
 
     const handeOpenModal = () => {
         setModalOpen(true);
