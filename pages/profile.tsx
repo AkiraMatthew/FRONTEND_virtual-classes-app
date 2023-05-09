@@ -48,7 +48,6 @@ const UserInfo = function () {
                         <Col md>
                             {/* making the conditional renderization by using the useState */}
                             {form === 'userForm' ? <UserForm/> : <PasswordForm/>}
-                            <UserForm />
                         </Col>
                     </Row>
                 </Container>
