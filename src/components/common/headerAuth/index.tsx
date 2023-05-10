@@ -22,12 +22,12 @@ const HeaderAuth = function () {
         //frontend route
         router.push(`search?name=${searchName}`);
         setSearchName('');
-    }
+    };
 
     const handleSearchOnClick = () => {
         router.push(`search?name=${searchName}`);
         setSearchName('');
-    }
+    };
 
     //Modal
     useEffect(() => {
@@ -71,8 +71,8 @@ const HeaderAuth = function () {
                             placeholder="Search"
                             className={styles.input}
                             value={searchName}
-                            onChange={(event)=>{
-                                setSearchName(event.currentTarget.value.toLowerCase())
+                            onChange={(event) => {
+                                setSearchName(event.currentTarget.value.toLowerCase());
                             }}
                         />
                     </Form>

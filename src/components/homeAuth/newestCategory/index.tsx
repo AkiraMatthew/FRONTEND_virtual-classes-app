@@ -9,7 +9,7 @@ const NewestCategory = function () {
     const { data, error } = useSWR('/newest', courseService.getNewestCourse);
 
     if (error) return error;
-    if (!data){
+    if (!data) {
         return <PageSpinner />;
     }
 

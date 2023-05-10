@@ -9,7 +9,7 @@ const FavoriteCategory = function () {
     const { data, error } = useSWR('/favorites', courseService.getFavCourses);
 
     if (error) return error;
-    if (!data){
+    if (!data) {
         return <PageSpinner />;
     }
 

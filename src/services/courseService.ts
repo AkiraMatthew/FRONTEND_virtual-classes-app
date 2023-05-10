@@ -91,7 +91,7 @@ const courseService = {
 
         return res;
     },
-    getSearch:async (name: string) => {
+    getSearch: async (name: string) => {
         const token = sessionStorage.getItem('platform-token');
 
         const res = await api

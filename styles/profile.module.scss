@@ -1,10 +1,10 @@
 @import './colors.module.scss';
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
 }
-.gridContainer{
+.gridContainer {
     flex: 1 0 auto; // flex: flex-basis flex-shrink flew-grow
     //padding: 80px 0;
 }

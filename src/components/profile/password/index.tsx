@@ -138,7 +138,7 @@ const PasswordForm = function () {
                         />
                     </FormGroup>
                 </div>
-                <Button type='submit' className={`${styles.formBtn}`} outline>
+                <Button type="submit" className={`${styles.formBtn}`} outline>
                     Save Changes
                 </Button>
             </Form>

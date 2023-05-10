@@ -8,7 +8,7 @@ const ListCategories = function () {
     const { data, error } = useSWR('/categoriesList', categoriesService.getCategories);
 
     if (error) return error;
-    if (!data){
+    if (!data) {
         return <PageSpinner />;
     }
 

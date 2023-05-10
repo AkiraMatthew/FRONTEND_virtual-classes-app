@@ -16,7 +16,7 @@ const ListCategoriesSlide = function ({ categoryId, categoryName }: props) {
     );
 
     if (error) return error;
-    if (!data){
+    if (!data) {
         return <PageSpinner />;
     }
     return (
