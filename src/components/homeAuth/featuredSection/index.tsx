@@ -5,18 +5,16 @@ import useSWR from 'swr'; // the SWR is a facilitator to fetch the backend
 import HeaderAuth from '@/components/common/headerAuth';
 import { Button, Container } from 'reactstrap';
 import Link from 'next/link';
+import PageSpinner from '@/components/spinner';
 
 const FeaturedSection = function () {
     //creating the SWR use
     const { data, error } = useSWR('/featured', courseService.getFeaturedCourses);
 
     if (error) return error;
-    if (!data)
-        return (
-            <>
-                <p>Loading...</p>
-            </>
-        );
+    if (!data){
+        return <PageSpinner />;
+}
 
     return (
         <>

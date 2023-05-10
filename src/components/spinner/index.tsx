@@ -10,4 +10,4 @@ const PageSpinner = function(){
     );
 };
 
-export default Spinner
+export default PageSpinner;
