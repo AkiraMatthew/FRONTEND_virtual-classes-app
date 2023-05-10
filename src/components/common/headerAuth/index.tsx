@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { Container, Form, Input } from 'reactstrap';
 import Link from 'next/link';
 import Modal from 'react-modal';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import profileService from '@/services/profileService';
 
@@ -14,7 +14,22 @@ const HeaderAuth = function () {
     const router = useRouter();
     const [modalOpen, setModalOpen] = useState(false);
     const [initials, setInitials] = useState('');
+    const [searchName, setSearchName] = useState('');
 
+    const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        //frontend route
+        router.push(`search?name=${searchName}`);
+        setSearchName('');
+    }
+
+    const handleSearchOnClick = () => {
+        router.push(`search?name=${searchName}`);
+        setSearchName('');
+    }
+
+    //Modal
     useEffect(() => {
         profileService.fetchCurrent().then((user) => {
             const firstNameInitial = user.firstName.slice(0, 1);
@@ -48,19 +63,25 @@ const HeaderAuth = function () {
                     />
                 </Link>
                 <div className="d-flex align-items-center">
-                    <Form>
+                    <Form onSubmit={handleSearch}>
+                        {/* Search input */}
                         <Input
                             name="search"
                             type="search"
                             placeholder="Search"
                             className={styles.input}
+                            value={searchName}
+                            onChange={(event)=>{
+                                setSearchName(event.currentTarget.value.toLowerCase())
+                            }}
                         />
                     </Form>
-                    {/* Search icon */}
+                    {/* Search icon(ícone da lupa de pesquisa) */}
                     <img
                         src="/imgs/homeAuth/iconSearch.svg"
                         alt="searchIcon"
                         className={styles.searchImg}
+                        onClick={handleSearchOnClick}
                     />
                     {/* The modal will be here, where the user initials will be sent */}
                     <p className={styles.userProfile} onClick={handeOpenModal}>
