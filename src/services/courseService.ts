@@ -99,8 +99,12 @@ const courseService = {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .catch((error) => {
+                console.log(error.response.data.message);
+
                 return error.response;
             });
+
+        console.log(`service: ${res}`);
 
         return res;
     },

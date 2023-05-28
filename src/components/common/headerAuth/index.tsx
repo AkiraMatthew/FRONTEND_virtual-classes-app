@@ -20,12 +20,16 @@ const HeaderAuth = function () {
         event.preventDefault();
 
         //frontend route
-        router.push(`search?name=${searchName}`);
+        // Frontend route with properly encoded searchName
+        const encodedSearchName = encodeURIComponent(searchName);
+        router.push(`/search?name=${searchName}`);
         setSearchName('');
     };
 
     const handleSearchOnClick = () => {
-        router.push(`search?name=${searchName}`);
+        // Frontend route with properly encoded searchName
+        const encodedSearchName = encodeURIComponent(searchName);
+        router.push(`/search?name=${searchName}`);
         setSearchName('');
     };
 

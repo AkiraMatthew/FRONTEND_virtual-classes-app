@@ -2,13 +2,27 @@ import Head from 'next/head';
 import styles from '../styles/search.module.scss';
 import HeaderAuth from '@/components/common/headerAuth';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { CourseType } from '@/services/courseService';
+import { useEffect, useState } from 'react';
+import courseService, { CourseType } from '@/services/courseService';
 
 const Search = function () {
     const router = useRouter();
-    const searchName = router.query.name;
+    const searchName: any = router.query.name;
     const [searchResult, setSearchResult] = useState<CourseType[]>([]);
+
+    const searchCourses = async function () {
+        if (searchName === 'string') {
+            const res = await courseService.getSearch(searchName);
+            console.log('API response:', res.data); // Log the entire response object
+            console.log('Search results:', res.data?.courses); // Log the search results
+            setSearchResult(res.data?.courses);
+        }
+    };
+
+    useEffect(() => {
+        console.log('searchName:', searchName); // Log the searchName value
+        searchCourses();
+    }, [searchName]); //if the searchName changes, the useEffect will call the searchCourses function again
 
     return (
         <>
@@ -18,6 +32,11 @@ const Search = function () {
             </Head>
             <main>
                 <HeaderAuth />
+                {searchResult?.map((course) => (
+                    <div key={course.id}>
+                        <p>{course.name}</p>
+                    </div>
+                ))}
             </main>
         </>
     );
